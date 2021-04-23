@@ -39,6 +39,13 @@ async def on_message(message):
                 team = summary.find_all("div",class_="team-name")[0]
              
                 result += "Player: " + player.text + ",  Team: " + team.text + "\n"
+                skills = summary.find_all("div", class_="summoner-spells");
+                skillImgs = skills[0].find_all("img",alt = True)
+                result += "Spells: "
+                for img in skillImgs:
+                    result +=img['alt'].split()[2] + ", "
+                    print(img['alt'])
+                result +="\n"
 
                 
                 items = summary.find_all("div", class_ = "items")
