@@ -39,6 +39,9 @@ async def on_message(message):
                 team = summary.find_all("div",class_="team-name")[0]
              
                 result += "Player: " + player.text + ",  Team: " + team.text + "\n"
+
+
+
                 skills = summary.find_all("div", class_="summoner-spells");
                 skillImgs = skills[0].find_all("img",alt = True)
                 result += "Spells: "
@@ -59,9 +62,9 @@ async def on_message(message):
 
             
             
-            await message.channel.send("Showing the top pro builds for " + champ.capitalize() +"\n" + result)
+            await message.channel.send("Showing the top pro builds for " + champ.capitalize() +"\n" + result +"\nFor more info go to https://probuildstats.com/champion/"+ champ)
           
             return
         
 
-client.run(config.dc_token)
+client.run(config.dc_token) #get dc bot token
