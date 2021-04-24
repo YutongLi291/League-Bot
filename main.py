@@ -15,8 +15,19 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('-lol hello'):
-        await message.channel.send('Hello!')
+    if message.content.startswith('-hello ') or message.content.startswith('-hello Mei') or message.content.startswith('-hello mc'):
+        await message.channel.send('I am asexual')
+    if message.content.startswith("-summoner"):
+        words = message.content.split();
+        if len(words) <2:
+            await message.channel.send("Please enter a summoner name!")
+        if len(words) > 2:
+            await message.channel.send("Incorrect format")
+        if len(words) == 2:
+            await message.channel.send("https://app.mobalytics.gg/lol/profile/na/" +words[1] +"/overview")
+
+
+        
     if message.content.startswith("-build"):
         words = message.content.split();
         if len(words) <2:
